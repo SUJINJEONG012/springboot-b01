@@ -9,5 +9,18 @@
 <h3>[[${list}]]</h3>
 <br>
 <h3 th:text="${list}"></h3>
+
+<!--반복문-->
+<ul>
+	<li th:each="str,status:${list}" th:text="${str}"></li>
+</ul>
+
+<ul>
+	<th:block th:each="str:${list}">
+		<li>[[${str}]]</li>
+	</th:block>
+</ul>
+
+
 </body>
 </html>
