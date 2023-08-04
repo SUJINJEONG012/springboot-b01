@@ -33,14 +33,30 @@ public class BoardRepositoryTests {
 //		});
 //	}
 	
-	@Test
-	public void testSelect() {
-		Long bno = 100L;
-		Optional<Board> result = boardRepository.findById(bno);
-		
-		Board board = result.orElseThrow();
-		log.info(board);
-	}
+//	@Test
+//	public void testSelect() {
+//		Long bno = 100L;
+//		Optional<Board> result = boardRepository.findById(bno);
+//		
+//		Board board = result.orElseThrow();
+//		log.info(board);
+//	}
+	
+//	@Test
+//	public void testUpdate() {
+//		Long bno = 100L;
+//		Optional<Board> result = boardRepository.findById(bno);
+//		Board board = result.orElseThrow();
+//		board.change("Update...Title 100", "Update content 100");
+//		boardRepository.save(board);
+//	}
+//	
+	
+//	@Test
+//	public void testDelete() {
+//		Long bno =1L;
+//		boardRepository.deleteById(bno);
+//	}
 	
 	
 	
