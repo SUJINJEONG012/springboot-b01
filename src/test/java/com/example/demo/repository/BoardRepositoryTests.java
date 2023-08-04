@@ -18,11 +18,10 @@ public class BoardRepositoryTests {
 	private BoardRepository boardRepository;
 	
 	//insert 테스트 
-	
 	@Test
 	public void testInsert() {
-		IntStream.rangeClosed(1, 100).forEach(i -> {
-			Board board = Board.builder()
+		IntStream.rangeClosed(1,100).forEach(i -> {
+			Board board = Board.builder()	
 					.title("title" + i)
 					.content("content"+i)
 					.writer("user" + (i % 10))
