@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import java.util.stream.IntStream;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +18,30 @@ public class BoardRepositoryTests {
 	private BoardRepository boardRepository;
 	
 	//insert 테스트 
+//	@Test
+//	public void testInsert() {
+//		IntStream.rangeClosed(1,100).forEach(i -> {
+//			Board board = Board.builder()	
+//					.title("title" + i)
+//					.content("content"+i)
+//					.writer("user" + (i % 10))
+//					.build();
+//			
+//			Board result = boardRepository.save(board);
+//			log.info("BNO:" + result.getBno());
+//					
+//		});
+//	}
+	
 	@Test
-	public void testInsert() {
-		IntStream.rangeClosed(1,100).forEach(i -> {
-			Board board = Board.builder()	
-					.title("title" + i)
-					.content("content"+i)
-					.writer("user" + (i % 10))
-					.build();
-			
-			Board result = boardRepository.save(board);
-			log.info("BNO:" + result.getBno());
-					
-		});
+	public void testSelect() {
+		Long bno = 100L;
+		Optional<Board> result = boardRepository.findById(bno);
+		
+		Board board = result.orElseThrow();
+		log.info(board);
 	}
+	
+	
+	
 }
