@@ -79,6 +79,13 @@ public class BoardRepositoryTests {
 //	
 //	}
 	
+	@Test
+	public void testSearch1() {
+		Pageable pageable = PageRequest.of(1, 10, Sort.by("bno").descending());
+		boardRepository.search1(pageable);	
+		log.info("@@@@@@ pageable"+pageable);
+	}
+	
 	
 	
 }
