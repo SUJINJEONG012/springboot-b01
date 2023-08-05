@@ -1,6 +1,8 @@
 package com.example.demo.repository;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,7 @@ public class BoardRepositoryTests {
 //					
 //		});
 //	}
-	
+//	
 //	@Test
 //	public void testSelect() {
 //		Long bno = 100L;
@@ -45,7 +47,7 @@ public class BoardRepositoryTests {
 //		Board board = result.orElseThrow();
 //		log.info(board);
 //	}
-	
+//	
 //	@Test
 //	public void testUpdate() {
 //		Long bno = 100L;
@@ -54,28 +56,28 @@ public class BoardRepositoryTests {
 //		board.change("Update...Title 100", "Update content 100");
 //		boardRepository.save(board);
 //	}
-//	
+	
 	
 //	@Test
 //	public void testDelete() {
 //		Long bno =1L;
 //		boardRepository.deleteById(bno);
 //	}
-	
-	@Test
-	public void testPaging() {
-		Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
-		Page<Board> result = boardRepository.findAll(pageable);
-		
-		log.info("Total count : " + result.getTotalElements());
-		log.info("Total pages : " + result.getTotalElements());
-		log.info("Page number: " + result.getNumber());
-		log.info("Page Size : " + result.getSize());
-		
-		List<Board> todoList = result.getContent();
-		todoList.forEach(board -> log.info(board));
-	
-	}
+//	
+//	@Test
+//	public void testPaging() {
+//		Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
+//		Page<Board> result = boardRepository.findAll(pageable);
+//		
+//		log.info("Total count : " + result.getTotalElements());
+//		log.info("Total pages : " + result.getTotalElements());
+//		log.info("Page number: " + result.getNumber());
+//		log.info("Page Size : " + result.getSize());
+//		
+//		List<Board> todoList = result.getContent();
+//		todoList.forEach(board -> log.info(board));
+//	
+//	}
 	
 	
 	
