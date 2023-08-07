@@ -10,4 +10,6 @@ public interface BoardSearch {
 	Page<Board> search1(Pageable pageable);
 	
 	Page<Board> searchAll(String[] types, String keyword, Pageable pageable);
+	
+	
 }
