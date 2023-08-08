@@ -2,6 +2,7 @@ package com.example.demo.dto;
 
 import java.util.List;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -24,10 +25,12 @@ public class PageResponseDto<E> {
 	
 	private List<E> dtoList;
 	
+	@Builder(builderMethodName="widthAll")
 	public PageResponseDto(PageRequestDto pageRequestDto, List<E> dtoList, int total) {
-		if(total > 0) {
+		if(total<= 0) {
 			return;
 		}
+		
 		this.page= pageRequestDto.getPage();
 		this.size= pageRequestDto.getSize();
 		
@@ -44,7 +47,6 @@ public class PageResponseDto<E> {
 		this.prev = this.start > 1;
 		
 		this.next = total > this.end * this.size;
-		
 		
 		
 	}

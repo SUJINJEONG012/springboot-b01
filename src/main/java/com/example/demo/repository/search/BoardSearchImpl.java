@@ -53,6 +53,7 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
 			BooleanBuilder booleanBuilder = new BooleanBuilder();
 			
 			for(String type: types) {
+				
 				switch(type) {
 				case "t":
 					booleanBuilder.or(board.title.contains(keyword));
