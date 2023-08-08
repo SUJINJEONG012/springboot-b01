@@ -16,18 +16,33 @@ public class BoardServiceTests {
 	@Autowired
 	private BoardService boardService;
 	
+//	@Test
+//	public void testRegister() {
+//		log.info(boardService.getClass().getName());
+//		
+//		BoardDto boardDto = BoardDto.builder()
+//				.title("sample Title")
+//				.content("Sample Content")
+//				.writer("user00")
+//				.build();
+//		
+//		Long bno = boardService.register(boardDto);
+//		
+//		log.info("bno : " + bno);
+//	}
+	
 	@Test
-	public void testRegister() {
-		log.info(boardService.getClass().getName());
-		
+	public void testModify() {
+		//변경에 필요한 데이터만
 		BoardDto boardDto = BoardDto.builder()
-				.title("sample Title")
-				.content("Sample Content")
-				.writer("user00")
+				.bno(101L)
+				.title("Update...")
+				.content("Updated.....content 101...")
 				.build();
 		
-		Long bno = boardService.register(boardDto);
+		boardService.modify(boardDto);
 		
-		log.info("bno : " + bno);
 	}
+	
+	
 }
