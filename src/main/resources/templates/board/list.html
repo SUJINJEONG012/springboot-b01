@@ -30,14 +30,38 @@
 						<tbody>
 
 							<tr th:each="dto:${responseDto.dtoList}">
-							<th scope="row">[[${dto.bno}]]</th>
-							<td>[[${dto.title}]]</td>
-							<td>[[${dto.writer}]]</td>
-							<td>[[${#temporals.format(dto.regDate, 'yyyy-MM-dd')}]]</td>
+								<th scope="row">[[${dto.bno}]]</th>
+								<td>[[${dto.title}]]</td>
+								<td>[[${dto.writer}]]</td>
+								<td>[[${#temporals.format(dto.regDate, 'yyyy-MM-dd')}]]</td>
 							</tr>
 						</tbody>
 
 					</table>
+
+
+
+					<!-- 페이징 처리 -->
+					<div class="float-end">
+						<ul class="pagination flex-wrap">
+							
+							<li class="page-item" th:if="${responseDto.prev}">
+								<a class="page-link" th:data-num="${responseDto.start-1}">Previous</a>
+							</li>
+							
+							<th:block th:each="i: ${#numbers.sequence(responseDto.start, responseDto.end)}">
+								<li th:class="${responseDto.page == i}?'page-item active':'page-item'">
+								<a class="page-link" th:data-num="${i}">[[${i}]]</a>
+								</li>
+							</th:block>
+							
+							<li class="page-item" th:if="${responseDto.next}">
+								<a class="page-link" th:data-num="${responseDto.end + 1}">Next</a>
+							</li>
+							
+							
+						</ul>
+					</div>
 				</div>
 			</div>
 
