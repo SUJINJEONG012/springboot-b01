@@ -23,7 +23,8 @@
 							<option value="tcw" th:selected="${pageRequestDto.type == 'tcw'}">제목내용작성자</option>
 						</select>
 					</div>
-					<input type="text" class="form-control" name="keyword" th:value="${pageRequestDto.keyword}">
+					<input type="text" class="form-control" name="keyword"
+						th:value="${pageRequestDto.keyword}">
 					<div class="input-group-append">
 						<button class="btn btn-outline-secondary searchBtn" type="submit">Search</button>
 						<button class="btn btn-outline-secondary clearBtn" type="button">Clear</button>
@@ -37,7 +38,7 @@
 
 	<div class="row mt-3">
 		<div class="col">
-		
+
 			<div class="card">
 				<div class="card-header">Board List</div>
 				<div class="card-body">
@@ -67,29 +68,53 @@
 					<!-- 페이징 처리 -->
 					<div class="float-end">
 						<ul class="pagination flex-wrap">
-							
-							<li class="page-item" th:if="${responseDto.prev}">
-								<a class="page-link" th:data-num="${responseDto.start-1}">Previous</a>
+
+							<li class="page-item" th:if="${responseDto.prev}"><a
+								class="page-link" th:data-num="${responseDto.start-1}">Previous</a>
 							</li>
-							
-							<th:block th:each="i: ${#numbers.sequence(responseDto.start, responseDto.end)}">
-								<li th:class="${responseDto.page == i}?'page-item active':'page-item'">
-								<a class="page-link" th:data-num="${i}">[[${i}]]</a>
+
+							<th:block
+								th:each="i: ${#numbers.sequence(responseDto.start, responseDto.end)}">
+								<li
+									th:class="${responseDto.page == i}?'page-item active':'page-item'">
+									<a class="page-link" th:data-num="${i}">[[${i}]]</a>
 								</li>
 							</th:block>
-							
-							<li class="page-item" th:if="${responseDto.next}">
-								<a class="page-link" th:data-num="${responseDto.end + 1}">Next</a>
-							</li>													
+
+							<li class="page-item" th:if="${responseDto.next}"><a
+								class="page-link" th:data-num="${responseDto.end + 1}">Next</a>
+							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	
-	
+
+	<!-- 모달 -->
+	<div class="modal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				
+				<div class="modal-body">
+				<p>Modal body texst page goes here</p>
+				</div>
+				
+				<div class="modal-footer">
+				 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clsoe</button>
+				 <button tyoe="button" class="btn btn-primary">Save change</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
 
 
 </div>
@@ -124,9 +149,12 @@
 	
 	// show modal
 	const result = [[${result}]]
+	const modal = new bootstrap.Modal(document.querySelector(".modal"));
+	
 	
 	if(result){
-		alert(result)
+		//alert(result)
+		modal.show()
 	}
 	
 </script>
