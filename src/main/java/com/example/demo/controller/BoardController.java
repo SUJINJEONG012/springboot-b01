@@ -48,9 +48,13 @@ public class BoardController {
 			redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
 			return "redirect:/board/register";
 		}
+		
 		log.info(boardDto);
+		
 		Long bno = boardService.register(boardDto);
+		
 		redirectAttributes.addFlashAttribute("result", bno);
+		
 		return "redirect:/board/list";
 	}
 }
