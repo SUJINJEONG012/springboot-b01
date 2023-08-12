@@ -50,16 +50,15 @@
                  
                  
                  <div class="my-4">
-                 	<div class="float-end" th:width="link = ${pageRequestDto.getLink()}">
-                 		
-                 		<a th:href="|@{/board/list}? ${link}|" class="text-decoration-none">
+                 	<div class="float-end" th:with="link = ${pageRequestDto.getLink()}">
+                 		<a th:href="|@{/board/list}?${link}|" class="text-decoration-none">
                  		<button type="button" class="btn btn-primary">List</button>
                  		</a>
-                 		<a th:href="">
+                 		
                  		<button type="button" class="btn btn-secondary">Modify</button>
-                 		</a>
+                 		
                  	</div>
-                 </div>
+                 </div> 
                  
 				
 				</div>
