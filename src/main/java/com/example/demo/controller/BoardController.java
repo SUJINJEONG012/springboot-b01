@@ -58,7 +58,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	@GetMapping("/read")
+	@GetMapping({"/read", "/modify"})
 	public void read(Long bno, PageRequestDto pageRequestDto, Model model) {
 		BoardDto boardDto = boardService.readOne(bno);
 		
