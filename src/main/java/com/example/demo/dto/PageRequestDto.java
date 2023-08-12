@@ -37,7 +37,7 @@ public class PageRequestDto {
 	}
 	
 	
-	public Pageable getPageable(String...props) {
+	public Pageable getPageable(String ...props) {
 		return PageRequest.of(this.page-1, this.size, Sort.by(props).descending());
 	}
 	
