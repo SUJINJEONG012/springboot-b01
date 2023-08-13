@@ -19,7 +19,7 @@
 					
 					<div class="input-group mb-3">
 						<span class="input-group-text">Bno</span>
-						<input type="text" class="form-control" name="title" th:value="${dto.bno}" readonly>
+						<input type="text" class="form-control" name="bno" th:value="${dto.bno}" readonly>
 					</div>
 					
 					<div class="input-group mb-3">
@@ -70,11 +70,12 @@
 	console.log(errors);
 	
 	let errorMsg = '';
+	
 	if(errors){
 		for(let i =0; i< errors.length; i++){
 			errorMsg += `${errors[i].field}은 ${errors[i].code} \n`
 		}
-		history.replaceState({}. null, null);
+		history.replaceState({}, null, null);
 		alert(errorMsg)
 	}	
 	

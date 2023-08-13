@@ -70,7 +70,9 @@ public class BoardController {
 	
 	@PostMapping("/modify")
 	public String modify(PageRequestDto pageRequestDto, @Valid BoardDto boardDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+		
 		log.info("Board Modify Post.......");
+		
 		if(bindingResult.hasErrors()) {
 			log.info("has errors........");
 			String link = pageRequestDto.getLink();
@@ -79,7 +81,9 @@ public class BoardController {
 		}
 		
 		boardService.modify(boardDto);
-		redirectAttributes.addAttribute("bno" , boardDto.getBno());
+		
+		redirectAttributes.addFlashAttribute("result", "modified");
+        redirectAttributes.addAttribute("bno", boardDto.getBno());
 		return "redirect:/board/read";
 	}
 }
