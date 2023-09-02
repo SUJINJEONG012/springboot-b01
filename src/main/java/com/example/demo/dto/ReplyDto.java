@@ -21,15 +21,11 @@ public class ReplyDto {
 
 	private Long rno;
 	
-	@NotNull
-	private String replyText;
 	
-	@NotEmpty
+	private String replyText;
+
 	private String replyer;
 	
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private LocalDateTime regDate;
+	private LocalDateTime regDate,modDate;
 	
-	@JsonIgnore
-	private LocalDateTime modDate;
 }
