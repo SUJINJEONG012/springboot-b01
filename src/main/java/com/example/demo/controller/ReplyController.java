@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +24,18 @@ public class ReplyController {
 
 	@ApiOperation(value="Replies Post", notes="POST 방식으로 댓글 등록")
 	@PostMapping(value="/", consumes= MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Map<String, Long>> register(@RequestBody ReplyDto replyDto){
+	public Map<String, Long> register(@RequestBody ReplyDto replyDto, BindingResult bindingResult) throws BindException{
+		
 		log.info("replyDto : " + replyDto);
-		Map<String, Long> resultMap = Map.of("rno", 111L);
-		return ResponseEntity.ok(resultMap);
+		
+		if(bindingResult.hasErrors()) {
+			throw new BindException(bindingResult);
+		}
+		
+		Map<String, Long> resultMap = new HashMap<>();
+		resultMap.put("rno", 111L);
+		
+		return resultMap;
 	}
 
 	

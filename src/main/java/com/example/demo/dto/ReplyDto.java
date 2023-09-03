@@ -5,9 +5,6 @@ import java.time.LocalDateTime;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,9 +18,13 @@ public class ReplyDto {
 
 	private Long rno;
 	
+	@NotNull
+	private Long bno;
 	
+	@NotEmpty
 	private String replyText;
 
+	@NotEmpty
 	private String replyer;
 	
 	private LocalDateTime regDate,modDate;
