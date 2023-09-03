@@ -5,7 +5,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +15,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name="Reply", indexes= {
+		@Index(name="idx_reply_board_bno", columnList="board_bno")
+})
 @Getter
 @Builder
 @AllArgsConstructor
