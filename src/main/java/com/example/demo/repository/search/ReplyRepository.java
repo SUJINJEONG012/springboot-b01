@@ -1,6 +1,10 @@
 package com.example.demo.repository.search;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public class ReplyRepository {
+import com.example.demo.domain.Reply;
 
+public interface ReplyRepository extends JpaRepository<Reply, Long> {
+
+		
 }
